@@ -1,0 +1,152 @@
+﻿/* --- Базовые Стили и Переменные --- */
+:root {
+    --primary-color: #FFD700; /* Золотой цвет */
+    --secondary-color: #FF4500; /* Оранжевый/Красный (акцент) */
+    --background-color: #0d1a26; /* Темно-синий фон (ночное небо) */
+    --text-color: #ffffff;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    /* Добавляем эффект легкого снегопада через псевдоэлементы (сложно, но красиво) */
+    background-image: radial-gradient(white 1px, transparent 1px), radial-gradient(white 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+}
+
+/* --- Шапка (Header) --- */
+.header {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(180deg, rgba(255, 69, 0, 0.2) 0%, rgba(13, 26, 38, 0.8) 100%);
+    border-bottom: 3px solid var(--primary-color);
+}
+
+    .header h1 {
+        font-family: var(--font-heading);
+        font-size: 3.5em;
+        color: var(--primary-color);
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+
+    .header p {
+        font-size: 1.2em;
+        margin-top: 10px;
+        color: #e0e0e0;
+    }
+
+/* --- Основное Содержимое (Container) --- */
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.section {
+    background-color: rgba(30, 48, 68, 0.85); /* Полупрозрачный фон для читаемости */
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-left: 5px solid var(--secondary-color);
+    transition: transform 0.3s ease;
+}
+
+    .section:hover {
+        transform: translateY(-5px); /* Небольшой эффект "всплытия" при наведении */
+    }
+
+    .section h2 {
+        font-family: var(--font-heading);
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        border-bottom: 1px dashed rgba(255, 215, 0, 0.5);
+        padding-bottom: 5px;
+    }
+
+    /* Стили для списка */
+    .section ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .section li {
+        margin-bottom: 8px;
+        padding-left: 25px;
+        position: relative;
+    }
+
+        .section li::before {
+            content: '⭐'; /* Звездочка вместо стандартного маркера */
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+
+/* --- Интерактивная Секция --- */
+.interactive {
+    text-align: center;
+}
+
+#wishButton {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.5);
+}
+
+    #wishButton:hover {
+        background-color: #ff6347; /* Более яркий красный */
+    }
+
+    #wishButton:active {
+        transform: scale(0.98);
+    }
+
+.hidden {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #3c5a7e;
+    border: 2px dashed var(--primary-color);
+    border-radius: 10px;
+    font-size: 1.3em;
+    font-style: italic;
+}
+
+/* --- Подвал (Footer) --- */
+.footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 215, 0, 0.3);
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 2.5em;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+}
